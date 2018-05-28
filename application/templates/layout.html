@@ -6,6 +6,11 @@
     </head>
 
     <body>
+      <ul>
+	<li><a href="{{ url_for('staff_index') }}">List staff</a></li>
+	<li><a href="{{ url_for('staff_form') }}">Add a person</a></li>
+      </ul>
+
       {% block body %}
       <p>
 	Tähän tuodaan sisältö muualta.
