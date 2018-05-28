@@ -14,3 +14,7 @@ Toimintoja:
 - Työvuorolistan listaus
 - Työntekijäkohtainen työraportti (tehdyt tunnit tietyllä aikavälillä)
 - Työvuorolistan yli- ja alemiehityksen raportointi
+
+## Linkit
+
+[Heroku]( http://rav-tyovuorolista-ts.herokuapp.com )
