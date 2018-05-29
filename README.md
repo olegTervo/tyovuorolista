@@ -17,4 +17,4 @@ Toimintoja:
 
 ## Linkit
 
-[Heroku (jostain syystä ei toimi)]( http://rav-tyovuorolista-ts.herokuapp.com )
+[Heroku]( http://rav-tyovuorolista-ts.herokuapp.com )
