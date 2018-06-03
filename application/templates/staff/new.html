@@ -2,8 +2,27 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('staff_create') }}">
-  <input type="text" name="name"/>
-  <input type="text" name="position"/>
-  <input type="submit" value="Add"/>
+  <table>
+      <tr>
+	<td>
+	  {{ form.name.label }}
+	</td>
+	<td>
+	  {{ form.name }}
+	</td>
+      </tr>
+      <tr>
+        <td>
+          {{ form.position.label }}
+        </td>
+        <td>
+          {{ form.position }}
+        </td>
+      </tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Add"/>
+	</td>
+      </tr>
 </form>
 {% endblock %}
