@@ -7,15 +7,22 @@
       <th>Position</th>
       <th>Work hours</th>
     </tr>
-    {% for staff in staff %}
+      {% for staff in staff %}
     <tr>
       <td>{{ staff.name }}</td>
       <td>{{ staff.position }}</td>
       <td>{{ staff.work_hours }}</td>
+      
       <td>
-         <form method="POST" action="{{ url_for('staff_work', staff_id=staff.id) }}">
-	  <input type="submit" value="Work"/>
-	</form>
+          <form method="POST" action="{{ url_for('staff_work', staff_id=staff.id) }}">
+	          <input type="submit" value="Work"/>
+	        </form>
+      </td>
+
+      <td>
+        <form method="POST" action="{{ url_for('staff_delete', staff_id=staff.id) }}">
+          <input type="submit" value="Delete"/>
+        </form>
       </td>
     </tr>
     {% endfor %}

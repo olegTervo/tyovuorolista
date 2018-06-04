@@ -25,6 +25,15 @@ def staff_work(staff_id):
   
     return redirect(url_for("staff_index"))
 
+@app.route("/staff/delete/<staff_id>/", methods=["POST"])
+@login_required
+def staff_delete(staff_id):
+    t = Staff.query.get(staff_id)
+    db.session().delete(t)
+    db.session().commit()
+
+    return redirect(url_for("staff_index"))
+
 @app.route("/staff/", methods=["POST"])
 @login_required
 def staff_create():
