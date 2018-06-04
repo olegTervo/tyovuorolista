@@ -20,9 +20,11 @@ Toimintoja:
 [Heroku]( http://rav-tyovuorolista-ts.herokuapp.com )
 
 Username: Admin
+
 Password: Admin
 
 ## Dokumentaatio
 
 [Käyttötapaukset]( https://github.com/olegTervo/tyovuorolista/blob/master/documentation/K%C3%A4ytt%C3%B6tapaukset.md )
+
 [Tietokantakaaviohahmotelma]( https://github.com/olegTervo/tyovuorolista/blob/master/documentation/Tietokantakaaviohahmotelma.md )
