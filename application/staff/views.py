@@ -1,5 +1,5 @@
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from application import app, db
 from application.staff.models import Staff
@@ -43,6 +43,7 @@ def staff_create():
         return render_template("staff/new.html", form = form)
 
     n = Staff(request.form.get("name"), request.form.get("position"))
+    n.account_id = current_user.id
 
     db.session().add(n)
     db.session().commit()

@@ -4,4 +4,20 @@
 <p>
   Hello world!
 </p>
+
+{% if your_staff is defined %}
+<p>
+  Staff:
+</p>
+
+<ul>
+  {% for user in your_staff %}
+  <li>
+    {{user.id}} {{user.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
