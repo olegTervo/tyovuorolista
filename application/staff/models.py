@@ -29,6 +29,5 @@ class Staff(db.Model):
       response = []
       for row in res:
          response.append({"id":row[0], "name":row[1]})
-      if response.__sizeof__ == 0:
-         return "0"
+      
       return response
