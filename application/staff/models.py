@@ -23,7 +23,7 @@ class Staff(db.Model):
    @staticmethod
    def your_staff(account_id):
       stmt = text("SELECT Staff.id, Staff.name FROM Staff"
-                     " WHERE (Staff.id == " + str(account_id) + ")")
+                     " WHERE (Staff.id = " + str(account_id) + ")")
       res = db.engine.execute(stmt)
 
       response = []
