@@ -15,6 +15,8 @@ class Staff(db.Model):
    account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
       nullable=False)
 
+   hours = db.relationship("Hours", backref='staff', lazy=True)
+
    def __init__(self, name, position):
       self.name = name
       self.position = position
@@ -23,7 +25,7 @@ class Staff(db.Model):
    @staticmethod
    def your_staff(account_id):
       stmt = text("SELECT Staff.id, Staff.name FROM Staff"
-                     " WHERE (Staff.id = " + str(account_id) + ")")
+                     " WHERE (account_id = " + str(account_id) + ")")
       res = db.engine.execute(stmt)
 
       response = []
@@ -31,3 +33,6 @@ class Staff(db.Model):
          response.append({"id":row[0], "name":row[1]})
       
       return response
+
+   def get(self):
+      return self.name

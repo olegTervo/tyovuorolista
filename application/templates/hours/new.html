@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('hours_form(staff.id)') }}">
+  <table>
+      <tr>
+	<td>
+	  {{ form.date.label }}
+	</td>
+	<td>
+	  {{ form.date }}
+	</td>
+      </tr> 
+      <tr>
+        <td>
+          {{ form.begins.label }}
+        </td>
+        <td>
+          {{ form.begins }}
+        </td>
+      </tr>
+      <tr>
+      <tr>
+        <td>
+          {{ form.ends.label }}
+        </td>
+        <td>
+          {{ form.position }}
+        </td>
+      </tr>
+	<td colspan="3">
+	  <input type="submit" value="Add"/>
+	</td>
+      </tr>
+</form>
+{% endblock %}

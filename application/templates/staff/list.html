@@ -14,7 +14,7 @@
       <td>{{ staff.work_hours }}</td>
       
       <td>
-          <form method="POST" action="{{ url_for('staff_work', staff_id=staff.id) }}">
+          <form action="{{ url_for('hours_form', staff_id=staff.id) }}">
 	          <input type="submit" value="Work"/>
 	        </form>
       </td>

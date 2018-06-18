@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Day</th>
+      <th>Begins</th>
+      <th>Ends</th>
+    </tr>
+      {% for hours in hours %}
+    <tr>
+      <td>{{ hours.date }}</td>
+      <td>{{ hours.begins }}</td>
+      <td>{{ hours.ends }}</td>
+
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

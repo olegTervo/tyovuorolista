@@ -7,8 +7,9 @@ from application.staff.forms import StaffForm
 
 
 @app.route("/staff", methods=["GET"])
+@login_required
 def staff_index():
-    return render_template("staff/list.html", staff = Staff.query.all())
+    return render_template("staff/list.html", staff = Staff.your_staff(current_user.id))
 
 @app.route("/staff/new/")
 @login_required

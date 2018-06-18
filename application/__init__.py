@@ -21,6 +21,9 @@ from application.staff import views
 from application.auth import models
 from application.auth import views
 
+from application.hours import models
+from application.hours import views
+
 # kirjautuminen
 from application.auth.models import User
 from os import urandom
