@@ -24,13 +24,13 @@ class Staff(db.Model):
 
    @staticmethod
    def your_staff(account_id):
-      stmt = text("SELECT Staff.id, Staff.name FROM Staff"
+      stmt = text("SELECT Staff.id, Staff.name, Staff.position FROM Staff"
                      " WHERE (account_id = " + str(account_id) + ")")
       res = db.engine.execute(stmt)
 
       response = []
       for row in res:
-         response.append({"id":row[0], "name":row[1]})
+         response.append({"id":row[0], "name":row[1], "position":row[2]})
       
       return response
 
