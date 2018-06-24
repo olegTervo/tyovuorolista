@@ -8,7 +8,7 @@ class Hours(db.Model):
    staff_id = db.Column(db.Integer, db.ForeignKey('staff.id'), nullable=False)
    #staff_name = db.Column(db.String(100))
 
-   date = db.Column(db.Date, nullable = False )
+   date = db.Column(db.String(50), nullable = False )
    begins = db.Column(db.Integer)
    ends = db.Column(db.Integer)
    workHours = db.Column(db.Integer)
@@ -16,9 +16,9 @@ class Hours(db.Model):
       
    def __init__(self, pvm, alk, loppu, staff_id):
        self.date = pvm
-       self.begins = alk
-       self.ends = loppu
-       self.workHours = loppu - alk
+       self.begins = int(alk)
+       self.ends = int(loppu)
+       self.workHours = int(loppu) - int(alk)
        self.staff_id = staff_id
 
    @staticmethod

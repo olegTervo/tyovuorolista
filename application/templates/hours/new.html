@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('hours_form(staff.id)') }}">
+<form method="POST" action="{{ url_for('hours_create', staff_id=staff_id) }}">
   <table>
       <tr>
 	<td>
@@ -25,10 +25,10 @@
           {{ form.ends.label }}
         </td>
         <td>
-          {{ form.position }}
+          {{ form.ends }}
         </td>
       </tr>
-	<td colspan="3">
+	<td colspan="2">
 	  <input type="submit" value="Add"/>
 	</td>
       </tr>

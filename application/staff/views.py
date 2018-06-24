@@ -26,7 +26,7 @@ def staff_work(staff_id):
   
     return redirect(url_for("staff_index"))
 
-@app.route("/staff/delete/<staff_id>/", methods=["POST"])
+@app.route("/staff/delete/<staff_id>/")
 @login_required
 def staff_delete(staff_id):
     t = Staff.query.get(staff_id)
