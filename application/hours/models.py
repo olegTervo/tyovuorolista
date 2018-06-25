@@ -23,12 +23,12 @@ class Hours(db.Model):
 
    @staticmethod
    def your_hours(staff_id):
-      stmt = text("SELECT Hours.date, Hours.begins, Hours.ends FROM Hours"
+      stmt = text("SELECT Hours.id, Hours.date, Hours.begins, Hours.ends FROM Hours"
                      " WHERE (staff_id = " + str(staff_id) + ")")
       res = db.engine.execute(stmt)
 
       response = []
       for row in res:
-         response.append({"date":row[0], "begins":row[1], "ends":row[2]})
+         response.append({"date":row[1], "begins":row[2], "ends":row[3], "id":row[0]})
       
       return response

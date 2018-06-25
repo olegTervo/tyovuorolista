@@ -9,7 +9,7 @@ from sqlalchemy.sql import text
 
 @app.route("/hours/index/<staff_id>/", methods=["GET"])
 def hours_index(staff_id):
-    return render_template("hours/list.html", hours = Hours.your_hours(staff_id))
+    return render_template("hours/list.html", hours = Hours.your_hours(staff_id), staff_id = staff_id)
 
 @app.route("/hours/form/<staff_id>/", methods=["GET"])
 @login_required
@@ -38,9 +38,15 @@ def hours_delete(staff_id):
     stmt = text("DELETE FROM Hours WHERE (staff_id = " + staff_id + ")")
     allHours = db.engine.execute(stmt)
 
-    #for hour in allHours:
-    #    t = Hours.query.get(int(hour[0]))
-    #    db.session().delete(t)
-    #    db.session().commit()
-
     return redirect(url_for("staff_delete", staff_id=int(staff_id)))
+
+@app.route("/hours/deleteHour/<hour_id>/", methods=["POST"])
+@login_required
+def hour_delete(hour_id):
+    hour = Hours.query.get(hour_id)
+    staff_id = hour.staff_id
+
+    db.session().delete(hour)
+    db.session().commit()
+
+    return redirect(url_for("hours_index", staff_id=int(staff_id)))

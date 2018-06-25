@@ -6,6 +6,11 @@
       <th>Day</th>
       <th>Begins</th>
       <th>Ends</th>
+      <th>
+        <form method="GET" action="{{ url_for('hours_form', staff_id=staff_id) }}">
+            <input type="submit" value="Add"/>
+        </form>    
+      </th>
     </tr>
       {% for hours in hours %}
     <tr>
@@ -13,6 +18,11 @@
       <td>{{ hours.begins }}</td>
       <td>{{ hours.ends }}</td>
 
+      <td>
+        <form method="POST" action="{{ url_for('hour_delete', hour_id=hours.id) }}">
+            <input type="submit" value="Delete"/>
+        </form>
+      </td>
     </tr>
     {% endfor %}
   </table>
