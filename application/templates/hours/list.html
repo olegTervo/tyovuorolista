@@ -1,17 +1,20 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+  <table class="table">
+  <thead class="thead-light">  
     <tr>
-      <th>Day</th>
-      <th>Begins</th>
-      <th>Ends</th>
-      <th>
+      <th scope="col">Day</th>
+      <th scope="col">Begins</th>
+      <th scope="col">Ends</th>
+      <th scope="col">
         <form method="GET" action="{{ url_for('hours_form', staff_id=staff_id) }}">
-            <input type="submit" value="Add"/>
+            <input type="submit" value="Add" class="btn btn-outline-secondary"/>
         </form>    
       </th>
     </tr>
+  </thead>
+  <tbody>
       {% for hours in hours %}
     <tr>
       <td>{{ hours.date }}</td>
@@ -20,10 +23,11 @@
 
       <td>
         <form method="POST" action="{{ url_for('hour_delete', hour_id=hours.id) }}">
-            <input type="submit" value="Delete"/>
+            <input type="submit" value="Delete" class="btn btn-outline-secondary"/>
         </form>
       </td>
     </tr>
     {% endfor %}
+  </tbody>
   </table>
 {% endblock %}

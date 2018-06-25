@@ -1,34 +1,40 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+  <table class="table">
+  <thead class="thead-light">
     <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Work hours</th>
+      <th scope="col">Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Work hours</th>
+      <th scope="col">Add workhous</th>
+      <th scope="col">Delete</th>
     </tr>
+  </thead>
+  <tbody>
       {% for staff in staff %}
     <tr>
       <td>{{ staff.name }}</td>
       <td>{{ staff.position }}</td>
       <td>
         <form action="{{ url_for('hours_index', staff_id=staff.id) }}">
-          <input type="submit" value="Work Hours"/>
+          <input type="submit" value="Work Hours" class="btn btn-outline-secondary" width="60"/>
         </form>
       </td>
       
       <td>
           <form action="{{ url_for('hours_form', staff_id=staff.id) }}">
-	          <input type="submit" value="Work"/>
+	          <input type="submit" value="Work" class="btn btn-outline-secondary" width="60"/>
 	        </form>
       </td>
 
       <td>
         <form method="POST" action="{{ url_for('hours_delete', staff_id=staff.id) }}">
-          <input type="submit" value="Delete"/>
+          <input type="submit" value="Delete" class="btn btn-outline-secondary" width="100%"/>
         </form>
       </td>
     </tr>
     {% endfor %}
+  </tbody>
   </table>
 {% endblock %}
