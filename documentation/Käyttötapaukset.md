@@ -25,6 +25,8 @@
   - Ammattitehtäviä on kolme: Tarjoilija, Chef ja Administrator.
  
   - Kun käyttäjä paina "Add" hän pääsee takaisin etusivulle, jossa on uusi henkilö listalla.
+  
+- Käyttäjä voi muuttaa henkilön painamalla "Edit" ja vaihtamalla tarvittavat kohdat.
  
 - Käyttäjä voi poistaa henkilön ja kaikki hänet työvuorot painamalla "Delete" henkilön oikealla puolella etusivulla.
 
