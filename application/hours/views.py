@@ -50,3 +50,8 @@ def hour_delete(hour_id):
     db.session().commit()
 
     return redirect(url_for("hours_index", staff_id=int(staff_id)))
+
+
+@app.route("/calendar/")
+def calendar():
+    return render_template("Month.html")

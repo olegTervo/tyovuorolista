@@ -50,3 +50,27 @@ def staff_create():
     db.session().commit()
 
     return redirect(url_for("staff_index"))
+
+@app.route("/staff/edit/<staff_id>/",  methods=["GET", "POST"])
+@login_required
+def staff_edit(staff_id):
+    staff = Staff.query.get(staff_id)
+    form = StaffForm(obj=staff)
+    
+    if request.method == 'POST':
+
+        if not form.validate():
+            return render_template("staff/edit.html", form = form, staff_id = staff_id)
+
+        n = Staff(request.form.get("name"), request.form.get("position"))
+        n.account_id = current_user.id
+
+        staff.name = n.name
+        staff.position = n.position
+
+        db.session().commit()
+
+        return redirect(url_for("staff_index"))
+
+    else:
+        return render_template("staff/edit.html", form = form, staff_id = staff_id)

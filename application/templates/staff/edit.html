@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('staff_edit', staff_id=staff_id) }}">
+  <table>
+      <tr>
+	<td>
+	  {{ form.name.label }}
+	</td>
+	<td>
+	  {{ form.name }}
+	</td>
+      </tr> 
+      <tr>
+        <td>
+          {{ form.position.label }}
+        </td>
+        <td>
+          {{ form.position }}
+        </td>
+      </tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Edit"/>
+	</td>
+      </tr>
+</form>
+{% endblock %}
